@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1647.robot;
 
 import edu.wpi.first.wpilibj.SampleRobot;
+import com.subsystem.*;
 
 /**
  * WARNING: While it may look like a good choice to use for your code if you're
@@ -9,7 +10,9 @@ import edu.wpi.first.wpilibj.SampleRobot;
  * instead if you're new.
  */
 public class Robot extends SampleRobot {
-
+	
+	Drive drive = new Drive();
+	
 	public Robot() {
 
 	}
@@ -26,10 +29,11 @@ public class Robot extends SampleRobot {
 
 	@Override
 	public void operatorControl() {
-
+		drive.drive();
 	}
 
 	@Override
 	public void test() {
+
 	}
 }
