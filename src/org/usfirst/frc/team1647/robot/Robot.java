@@ -29,7 +29,9 @@ public class Robot extends SampleRobot {
 
 	@Override
 	public void operatorControl() {
-		drive.drive();
+		while(isOperatorControl() && isEnabled()) {
+			drive.drive();
+		}
 	}
 
 	@Override
