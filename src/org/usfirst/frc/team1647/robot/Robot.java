@@ -2,6 +2,8 @@ package org.usfirst.frc.team1647.robot;
 
 import edu.wpi.first.wpilibj.SampleRobot;
 import com.subsystem.*;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * WARNING: While it may look like a good choice to use for your code if you're
@@ -10,16 +12,18 @@ import com.subsystem.*;
  * instead if you're new.
  */
 public class Robot extends SampleRobot {
-	
-	Drive drive = new Drive();
+	Joystick ps3 = new Joystick(0);
+	Joystick stick2 = new Joystick(1);
+	Drive drive = new Drive(ps3, stick2);
+	Compressor air = new Compressor();
 	
 	public Robot() {
-
+		
 	}
 
 	@Override
 	public void robotInit() {
-
+		air.start();
 	}
 
 	@Override
