@@ -12,7 +12,7 @@ public class Drive extends Subsystem {
 	private CANTalon talon3;
 	private CANTalon talon4;
 	private RobotDrive drive;
-	//private Solenoid superShifter;
+	private Solenoid superShifter;
 	
 	
 	public Drive(Joystick ps3, Joystick stick2) {
