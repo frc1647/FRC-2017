@@ -12,13 +12,18 @@ import edu.wpi.first.wpilibj.Joystick;
  * instead if you're new.
  */
 public class Robot extends SampleRobot {
-	Joystick ps3 = new Joystick(0);
-	Joystick stick2 = new Joystick(1);
-	Drive drive = new Drive(ps3, stick2);
-	Compressor air = new Compressor();
+	Joystick ps3;
+	Joystick stick2;
+	Drive drive;
+	GearOutput gearOutput;
+	Compressor air;
 	
 	public Robot() {
-		
+		ps3 = new Joystick(0);
+		stick2 = new Joystick(1);
+		drive = new Drive(ps3, stick2);
+		gearOutput = new GearOutput(ps3, stick2);
+		air = new Compressor();
 	}
 
 	@Override
@@ -35,6 +40,7 @@ public class Robot extends SampleRobot {
 	public void operatorControl() {
 		while(isOperatorControl() && isEnabled()) {
 			drive.drive();
+			gearOutput.output();
 		}
 	}
 
