@@ -5,7 +5,8 @@ import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.AnalogInput;
 
 public class Lift extends Manipulator {
-	
+	// TODO: ask about sensor/limit switch for top
+	// TODO: auto operation
 	CANTalon lift;
 	AnalogInput pot;
 	

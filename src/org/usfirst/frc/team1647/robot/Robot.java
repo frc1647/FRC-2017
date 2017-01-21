@@ -43,6 +43,7 @@ public class Robot extends SampleRobot {
 	@Override
 	public void operatorControl() {
 		while(isOperatorControl() && isEnabled()) {
+			// TODO: finalize joystick axes
 			drive.drive();
 			gearIntake.intake();
 			gearOutput.output();

@@ -4,6 +4,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.CANTalon;
 
 public class GearIntake extends Manipulator {
+	// TODO: ask about sensor
+	// TODO: limit switches?
+	// TODO: servos?
+	// TODO: auto turn off/operation with sensor
 	CANTalon pickup;
 	CANTalon conveyor;
 	
