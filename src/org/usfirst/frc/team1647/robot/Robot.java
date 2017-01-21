@@ -15,6 +15,7 @@ public class Robot extends SampleRobot {
 	Joystick ps3;
 	Joystick stick2;
 	Drive drive;
+	GearIntake gearIntake;
 	GearOutput gearOutput;
 	Lift lift;
 	Compressor air;
@@ -23,6 +24,7 @@ public class Robot extends SampleRobot {
 		ps3 = new Joystick(0);
 		stick2 = new Joystick(1);
 		drive = new Drive(ps3, stick2);
+		gearIntake = new GearIntake(ps3, stick2);
 		gearOutput = new GearOutput(ps3, stick2);
 		lift = new Lift(ps3, stick2);
 		air = new Compressor();
@@ -42,6 +44,7 @@ public class Robot extends SampleRobot {
 	public void operatorControl() {
 		while(isOperatorControl() && isEnabled()) {
 			drive.drive();
+			gearIntake.intake();
 			gearOutput.output();
 			lift.lift();
 		}
