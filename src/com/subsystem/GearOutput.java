@@ -12,8 +12,8 @@ public class GearOutput extends Manipulator {
 	
 	public GearOutput(Joystick ps3, Joystick stick2) {
 		super(ps3, stick2);
-		openGearDoor = new Solenoid(0);
-		pushGearDoor = new Solenoid(1);
+		openGearDoor = new Solenoid(1);
+		pushGearDoor = new Solenoid(2);
 		openGearDoorState = false;
 		pushGearDoorState = false;
 	}

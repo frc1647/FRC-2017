@@ -11,8 +11,8 @@ public class Drive extends Subsystem {
 	private CANTalon talon2;
 	private CANTalon talon3;
 	private CANTalon talon4;
-	private RobotDrive drive;
 	private Solenoid superShifter;
+	private RobotDrive drive;
 	
 	
 	public Drive(Joystick ps3, Joystick stick2) {
@@ -22,9 +22,11 @@ public class Drive extends Subsystem {
 		talon3 = new CANTalon(3);
 		talon4 = new CANTalon(4);
 		drive = new RobotDrive(talon1, talon2, talon3, talon4);
+		superShifter = new Solenoid(0);
 	}
 	
 	public void drive() {
 		drive.tankDrive(ps3.getRawAxis(1), ps3.getRawAxis(3));
+		
 	}
 }
