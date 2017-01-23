@@ -2,6 +2,7 @@ package com.subsystem;
 
 import edu.wpi.first.wpilibj.Joystick;
 import com.ctre.CANTalon;
+import edu.wpi.first.wpilibj.Talon;
 
 public class GearIntake extends Manipulator {
 	// TODO: ask about sensor
@@ -9,12 +10,14 @@ public class GearIntake extends Manipulator {
 	// TODO: servos?
 	// TODO: auto turn off/operation with sensor
 	CANTalon pickup;
-	CANTalon conveyor;
+	//CANTalon conveyor;
+	Talon conveyor;
 	
 	public GearIntake(Joystick ps3, Joystick stick2) {
 		super(ps3, stick2);
 		pickup = new CANTalon(6);
-		conveyor = new CANTalon(7);
+		conveyor = new Talon(0);
+		//conveyor = new CANTalon(7);
 	}
 	
 	public void intake() {
