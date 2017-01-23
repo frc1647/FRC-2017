@@ -28,7 +28,7 @@ public class Drive extends Subsystem {
 	}
 	
 	public void drive() {
-		drive.tankDrive(ps3.getRawAxis(1), ps3.getRawAxis(3));
+		drive.tankDrive(transformJoyInput(ps3.getRawAxis(1)), transformJoyInput(ps3.getRawAxis(3)));
 		superShifterState = toggleSolenoid(superShifter, ps3.getRawButton(1), superShifterState);
 	}
 }

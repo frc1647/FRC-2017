@@ -22,4 +22,9 @@ public abstract class Subsystem {
         }
         return buttonHeld;
     }
+    
+    public static double transformJoyInput(double input) {
+    	final double JOY_SCALE = 0.5208333;
+    	return (JOY_SCALE)*Math.pow(input, 3) + (1-JOY_SCALE)*input;
+    }
 }
