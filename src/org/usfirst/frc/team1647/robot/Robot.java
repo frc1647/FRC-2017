@@ -19,6 +19,7 @@ public class Robot extends SampleRobot {
 	GearOutput gearOutput;
 	Lift lift;
 	Compressor air;
+	Messenger sd;
 	
 	public Robot() {
 		ps3 = new Joystick(0);
@@ -48,6 +49,8 @@ public class Robot extends SampleRobot {
 			gearIntake.intake();
 			gearOutput.output();
 			lift.lift();
+			sd.setData(drive.getSuperShifterState(), gearOutput.getOpenGearDoorState(), gearOutput.getPushGearDoorState(), lift.getPot());
+			sd.putData();
 		}
 	}
 

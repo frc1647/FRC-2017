@@ -30,4 +30,12 @@ public class GearOutput extends Manipulator {
 		openGearDoor();
 		pushGearDoor();
 	}
+	
+	public boolean getOpenGearDoorState() {
+		return openGearDoorState;
+	}
+	
+	public boolean getPushGearDoorState() {
+		return pushGearDoorState;
+	}
 }
