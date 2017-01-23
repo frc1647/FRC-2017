@@ -13,6 +13,7 @@ public class Drive extends Subsystem {
 	private CANTalon talon4;
 	private Solenoid superShifter;
 	private RobotDrive drive;
+	private boolean superShifterState;
 	
 	
 	public Drive(Joystick ps3, Joystick stick2) {
@@ -23,11 +24,11 @@ public class Drive extends Subsystem {
 		talon4 = new CANTalon(4);
 		drive = new RobotDrive(talon1, talon2, talon3, talon4);
 		superShifter = new Solenoid(0);
+		superShifterState = false;
 	}
 	
 	public void drive() {
-		// TODO: supershifter code
 		drive.tankDrive(ps3.getRawAxis(1), ps3.getRawAxis(3));
-		
+		superShifterState = toggleSolenoid(superShifter, ps3.getRawButton(1), superShifterState);
 	}
 }
