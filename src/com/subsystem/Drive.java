@@ -32,6 +32,14 @@ public class Drive extends Subsystem {
 		superShifterState = toggleSolenoid(superShifter, ps3.getRawButton(1), superShifterState);
 	}
 	
+	public void drive(double leftSpeed, double rightSpeed) {
+		if(Math.abs(leftSpeed) < 1 && Math.abs(rightSpeed) < 1) {
+			drive.tankDrive(leftSpeed, rightSpeed);
+		} else {
+			drive.tankDrive(0, 0);
+		}
+	}
+	
 	public boolean getSuperShifterState() {
 		return superShifterState;
 	}
