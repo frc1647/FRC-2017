@@ -29,6 +29,7 @@ public class Robot extends SampleRobot {
 		gearOutput = new GearOutput(ps3, stick2);
 		lift = new Lift(ps3, stick2);
 		air = new Compressor();
+		sd = new Messenger();
 	}
 
 	@Override
