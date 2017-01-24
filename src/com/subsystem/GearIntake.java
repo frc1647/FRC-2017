@@ -32,4 +32,16 @@ public class GearIntake extends Manipulator {
 	public void conveyor() {
 		conveyor.set(stick2.getRawAxis(2));
 	}
+	
+	public void autoPickup(double speed) {
+		if(Math.abs(speed) < 1) {
+			pickup.set(speed);
+		}
+	}
+	
+	public void autoConveyor(double speed) {
+		if(Math.abs(speed) < 1) {
+			conveyor.set(speed);
+		}
+	}
 }
