@@ -25,11 +25,11 @@ public class GearIntake extends Manipulator {
 		conveyor();
 	}
 	
-	public void pickup() {
+	private void pickup() {
 		pickup.set(stick2.getRawAxis(3));
 	}
 	
-	public void conveyor() {
+	private void conveyor() {
 		conveyor.set(stick2.getRawAxis(2));
 	}
 	
