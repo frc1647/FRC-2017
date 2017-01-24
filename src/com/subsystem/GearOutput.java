@@ -26,6 +26,15 @@ public class GearOutput extends Manipulator {
 		pushGearDoorState = toggleSolenoid(pushGearDoor, ps3.getRawButton(2), pushGearDoorState);
 	}
 	
+	public void autoOpenGearDoor(boolean state) {
+		openGearDoorState = toggleSolenoid(openGearDoor, state, openGearDoorState);
+	}
+	
+	public void autoPushGearDoor(boolean state) {
+		pushGearDoorState = toggleSolenoid(pushGearDoor, state, pushGearDoorState);
+		
+	}
+	
 	public void output() {
 		openGearDoor();
 		pushGearDoor();
