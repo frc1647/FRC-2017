@@ -33,7 +33,7 @@ public class Drive extends Subsystem {
 	}
 	
 	public void drive(double leftSpeed, double rightSpeed) {
-		if(Math.abs(leftSpeed) < 1 && Math.abs(rightSpeed) < 1) {
+		if(Math.abs(leftSpeed) <= 1 && Math.abs(rightSpeed) <= 1) {
 			drive.tankDrive(leftSpeed, rightSpeed);
 		} else {
 			drive.tankDrive(0, 0);
