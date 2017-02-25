@@ -2,6 +2,7 @@ package org.usfirst.frc.team1647.robot;
 
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.Timer;
 
 import com.subsystem.*;
 
@@ -22,7 +23,7 @@ public class Robot extends SampleRobot {
 	Joystick ps3;
 	Joystick stick2;
 	Drive drive;
-	GearIntake gearIntake;
+	//GearIntake gearIntake;
 	GearOutput gearOutput;
 	Lift lift;
 	Compressor air;
@@ -37,7 +38,7 @@ public class Robot extends SampleRobot {
 		ps3 = new Joystick(0);
 		stick2 = new Joystick(1);
 		drive = new Drive(ps3, stick2);
-		gearIntake = new GearIntake(ps3, stick2);
+		//gearIntake = new GearIntake(ps3, stick2);
 		gearOutput = new GearOutput(ps3, stick2);
 		lift = new Lift(ps3, stick2);
 		air = new Compressor();
@@ -46,7 +47,7 @@ public class Robot extends SampleRobot {
 		switch1 = new DigitalInput(0);
 		switch2 = new DigitalInput(1);
 		switch3 = new DigitalInput(2);
-		auto = new Autonomous(switch1, switch2, switch3, drive, gearOutput);
+		auto = new Autonomous(drive, gearOutput);
 	}
 
 	@Override
@@ -56,14 +57,10 @@ public class Robot extends SampleRobot {
 
 	@Override
 	public void autonomous() {
-		auto.setSwitch1(switch1.get());
-		auto.setSwitch2(switch2.get());
-		auto.setSwitch3(switch3.get());
-		auto.setAutoMode(auto.getSwitch1(), auto.getSwitch2(), auto.getSwitch3());
+		auto.setAutoMode(switch1.get(), switch2.get(), switch3.get());
 		Mode autoMode = auto.getMode();
 		while(isAutonomous() && isEnabled()){
 			auto.drive(autoMode);
-			System.out.println("Switch 1: " + auto.getSwitch1() + "   Switch 2: " + auto.getSwitch2() + "   Switch3: " + auto.getSwitch3());
 		}
 	}
 
@@ -72,11 +69,12 @@ public class Robot extends SampleRobot {
 		while(isOperatorControl() && isEnabled()) {
 			// TODO: finalize joystick axes
 			drive.drive();
-			gearIntake.intake();
+			//gearIntake.intake();
 			gearOutput.output();
 			lift.lift();
-			sd.setData(drive.getSuperShifterState(), gearOutput.getOpenGearDoorState(), gearOutput.getPushGearDoorState(), lift.getPot(), lift.getColorSensor());
+			sd.setData(drive.getSuperShifterState(), gearOutput.getOpenGearDoorState(), gearOutput.getPushGearDoorState(), lift.getPot(), lift.getLightSensor());
 			sd.putData();
+			Timer.delay(0.005);
 		}
 	}
 
