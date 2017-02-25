@@ -34,7 +34,7 @@ public class GearOutput extends Manipulator {
 		pushGearDoorState = toggleSolenoid(pushGearDoor, state, pushGearDoorState);
 		
 	}
-	
+
 	public void output() {
 		openGearDoor();
 		pushGearDoor();
