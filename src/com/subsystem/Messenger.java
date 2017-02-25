@@ -17,7 +17,6 @@ public class Messenger {
 	
 	public Messenger() {
 		DriverStation.getInstance();
-		vision = NetworkTable.getTable("vision");
 	}
 	
 	public void putData() {
