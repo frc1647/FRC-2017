@@ -14,6 +14,7 @@ public class Messenger {
 	boolean switch2;
 	boolean switch3;
 	double colorSensor;
+	double ahrsAngle;
 	
 	public Messenger() {
 		DriverStation.getInstance();
@@ -26,17 +27,19 @@ public class Messenger {
 			SmartDashboard.putString("Push Gear Door", pushGearDoor ? "retracted" : "extended");
 			SmartDashboard.putNumber("Lift Pot", liftPot);
 			SmartDashboard.putNumber("Color Sensor", colorSensor);
+			SmartDashboard.putNumber("AHRS Angle", ahrsAngle);
 		} catch (Exception e) {
 			System.out.println("Error with SmartDashboard");
 		}
 	}
 	
-	public void setData(boolean gear, boolean openGearDoor, boolean pushGearDoor, double liftPot, double colorSensor) {
+	public void setData(boolean gear, boolean openGearDoor, boolean pushGearDoor, double liftPot, double colorSensor, double ahrsAngle) {
 		this.gear = gear;
 		this.openGearDoor = openGearDoor;
 		this.pushGearDoor = pushGearDoor;
 		this.liftPot = liftPot;
 		this.colorSensor = colorSensor;
+		this.ahrsAngle = ahrsAngle;
 	}
 	
 	public void setData(boolean switch1, boolean switch2, boolean switch3){

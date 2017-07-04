@@ -46,7 +46,8 @@ public class Autonomous {
 	public void drive(Mode mode) {
 		switch (mode) {
 		case DRIVEFORWARD:
-			drive.drive(1, 1);
+			drive.drive(0.5, 0.5);
+			Timer.delay(5);
 			break;
 		case TRACK:
 			drive.drive(1, 0);

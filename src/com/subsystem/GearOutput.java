@@ -2,6 +2,7 @@ package com.subsystem;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Timer;
 
 public class GearOutput extends Manipulator {
 	
@@ -19,11 +20,11 @@ public class GearOutput extends Manipulator {
 	}
 	
 	private void openGearDoor() {
-		openGearDoorState = toggleSolenoid(openGearDoor, ps3.getRawButton(1), openGearDoorState);
+		openGearDoorState = toggleSolenoid(openGearDoor, stick2.getRawButton(1), openGearDoorState);
 	}
 	
 	private void pushGearDoor() {
-		pushGearDoorState = toggleSolenoid(pushGearDoor, ps3.getRawButton(2), pushGearDoorState);
+		pushGearDoorState = toggleSolenoid(pushGearDoor, stick2.getRawButton(2), pushGearDoorState);
 	}
 	
 	public void autoOpenGearDoor(boolean state) {
@@ -38,6 +39,12 @@ public class GearOutput extends Manipulator {
 	public void output() {
 		openGearDoor();
 		pushGearDoor();
+	}
+	
+	public void autoOutput() {
+		autoOpenGearDoor(!getOpenGearDoorState());
+		Timer.delay(0.1);
+		autoPushGearDoor(!getPushGearDoorState());
 	}
 	
 	public boolean getOpenGearDoorState() {
